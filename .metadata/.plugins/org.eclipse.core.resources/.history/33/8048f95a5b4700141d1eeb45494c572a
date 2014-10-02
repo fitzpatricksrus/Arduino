@@ -1,0 +1,26 @@
+/*
+ * OutputPins.h
+ *
+ *  Created on: Sep 24, 2014
+ *      Author: Dad
+ */
+
+#ifndef OUTPUTPINS_H_
+#define OUTPUTPINS_H_
+
+class OutputPins {
+public:
+    OutputPins(int pins[], int pinCount);
+	virtual ~OutputPins();
+    void initialize();
+    int getPin(int pinNdx);
+    inline int getPinDigital(int pinNdx) { return getPin(pinNdx) };
+    void setPin(int pinNdx, int value);
+    void setPinDigital(int pinNdx, int value);
+    int getPinCount();
+private:
+    int* pinNumber;
+    int* pinValue;
+    int pinCount;
+};
+#endif /* OUTPUTPINS_H_ */

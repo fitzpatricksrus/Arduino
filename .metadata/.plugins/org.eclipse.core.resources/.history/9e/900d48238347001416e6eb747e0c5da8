@@ -1,0 +1,21 @@
+/*
+ * Matrix.h
+ *
+ *  Created on: Sep 28, 2014
+ *      Author: Dad
+ */
+
+#ifndef MATRIX_H_
+#define MATRIX_H_
+
+template <class T, int ROWS, int COLS>
+class Matrix {
+public:
+	Matrix();
+	Matrix(T[COLS][ROWS]& values);
+	virtual ~Matrix();
+
+
+};
+
+#endif /* MATRIX_H_ */

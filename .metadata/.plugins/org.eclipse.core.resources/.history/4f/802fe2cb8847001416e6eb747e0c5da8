@@ -1,0 +1,49 @@
+/*
+ * MatrixPattern.cpp
+ *
+ *  Created on: Sep 26, 2014
+ *      Author: Dad
+ */
+
+#include "MatrixPattern.h"
+
+template <int rows, int cols>
+class ConcreteMatrixPattern : public MatrixPattern {
+  public:
+    virtual ~ConcreteMatrixPattern();
+    virtual int getRowCount() const;
+    virtual int getColumnCount() const;
+    virtual int getValue(int row, int column) const;
+    virtual int const* operator[](int columnIndex) const;
+    virtual int* operator[](int columnIndex);
+
+  private:
+
+};
+
+template <int rows, int cols>
+ConcreteMatrixPattern<rows, cols>::~ConcreteMatrixPattern() {
+
+}
+int ConcreteMatrixPattern::getRowCount() const {
+
+}
+int ConcreteMatrixPattern::getColumnCount() const {
+
+}
+int ConcreteMatrixPattern::getValue(int row, int column) const {
+
+}
+int const* ConcreteMatrixPattern::operator[](int columnIndex) const {
+
+}
+int* ConcreteMatrixPattern::operator[](int columnIndex) {
+
+}
+
+//------------------------------------------
+
+template <int cols, int rows>
+static MatrixPattern* MatrixPattern::create(int[cols][rows]) {
+	return 0;
+}

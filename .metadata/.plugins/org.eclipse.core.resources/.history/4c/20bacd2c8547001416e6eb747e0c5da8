@@ -1,0 +1,44 @@
+/*
+ * MatrixPattern.cpp
+ *
+ *  Created on: Sep 26, 2014
+ *      Author: Dad
+ */
+
+#include "MatrixPattern.h"
+
+class RealMatrixColumn : public MatrixPattern::MatrixColumn {
+	RealMatrixColumn(int* values);
+	virtual int operator[](int rowIndex) const;
+	int* values;
+};
+
+RealMatrixColumn::RealMatrixColumn(int* valuesIn)
+: values(valuesIn)
+{
+}
+
+int RealMatrixColumn::operator[](int rowIndex) const {
+	return values[i];
+}
+
+MatrixPattern::~MatrixPattern() {
+
+}
+int MatrixPattern::getRowCount() const {
+
+}
+int MatrixPattern::getColumnCount() const {
+
+}
+int MatrixPattern::getValue(int row, int column) const {
+
+}
+MatrixColumn& MatrixPattern::operator[](int columnIndex) const {
+
+}
+
+template <int cols, int rows>
+static MatrixPattern* MatrixPattern::create(int[cols][rows]) {
+
+}

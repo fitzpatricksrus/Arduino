@@ -1,0 +1,18 @@
+/*
+ * Debuggable.cpp
+ *
+ *  Created on: Sep 29, 2014
+ *      Author: Dad
+ */
+
+#include "Debuggable.h"
+
+Debuggable::Debuggable() {
+	// TODO Auto-generated constructor stub
+
+}
+
+Debuggable::~Debuggable() {
+	// TODO Auto-generated destructor stub
+}
+

@@ -1,0 +1,24 @@
+//This is a automatic generated file
+//Please do not modify this file
+//If you touch this file your change will be overwritten during the next build
+//This file has been generated on 2014-09-28 16:35:42
+
+#include "Arduino.h"
+#include <Arduino.h>
+OutputPins::OutputPins(int pinsIn[], int pinCountIn) : pinNumber(&pinsIn[0]), pinCount(pinCountIn) ;
+void OutputPins::initialize() ;
+int OutputPins::getPin(int pinNdx) ;
+void OutputPins::setPin(int pinNdx, int value) ;
+int OutputPins::getPinCount() ;
+int NullEffect::effect(int value) ;
+FadeInOutEffect::FadeInOutEffect(int fadeRateIn) : fadeRate(fadeRateIn) ;
+int FadeInOutEffect::effect(int value) ;
+LampConfiguration::LampConfiguration(Matrix& matrixIn) : matrix(matrixIn), lastRefreshTime(0), lastRefreshColumn(0), effect(NullEffect_INSTANCE) ;
+LampConfiguration::LampConfiguration(Matrix& matrixIn, Effect& effectIn) : matrix(matrixIn), lastRefreshTime(0), lastRefreshColumn(0), effect(effectIn) ;
+void LampConfiguration::reset() ;
+void LampConfiguration::refresh(OutputPins& rowPins, OutputPins& columnPins) ;
+void setup() ;
+void loop() ;
+
+
+#include "5X7_LampMatrix.ino"

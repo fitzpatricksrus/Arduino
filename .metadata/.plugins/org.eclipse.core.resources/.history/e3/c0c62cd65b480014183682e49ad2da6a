@@ -1,0 +1,23 @@
+/*
+ * Debuggable.h
+ *
+ *  Created on: Sep 29, 2014
+ *      Author: Dad
+ */
+
+#ifndef DEBUGGABLE_H_
+#define DEBUGGABLE_H_
+
+#include <Arduino.h>
+
+class Debuggable {
+public:
+	inline Debuggable() { debugOn = false; }
+	inline ~Debuggable() {}
+	inline void setDebug(bool debugOnIn) { debugOn = debugOnIn; }
+	inline void println(String msg) { if (Serial) Serial.println(msg); }
+private:
+	bool debugOn;
+};
+
+#endif /* DEBUGGABLE_H_ */

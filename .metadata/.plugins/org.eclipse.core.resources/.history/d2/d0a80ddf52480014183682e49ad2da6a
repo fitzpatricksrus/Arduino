@@ -1,0 +1,79 @@
+/*
+ * MatrixPins.cpp
+ *
+ *  Created on: Sep 26, 2014
+ *      Author: Dad
+ */
+
+#include "MatrixPins.h"
+#include <Arduino.h>
+
+MatrixPins::MatrixPins(const OutputPins& colsIn, const OutputPins& rowsIn, Time refreshRateIn)
+: columns(colsIn), rows(rowsIn), currentPattern(0), refreshRate(refreshRateIn)
+{
+	Time timePerColumn = refreshRate / columns.getPinCount();
+	for (int i = 0; i < TIMER_GRANULARITY; i++) {
+		pwmCutoffs[i] = map(i, 0, TIMER_GRANULARITY-1, 0, timePerColumn);
+	}
+	colStarts = new Time[columns.getPinCount()];
+	colStops = new Time[columns.getPinCount()];
+	for (int i = 0; i < columns.getPinCount(); i++) {
+		colStarts[i] = i*timePerColumn;
+		colStops[i] = (i+1)*timePerColumn;
+	}
+}
+
+MatrixPins::~MatrixPins() {
+	delete [] colStarts;
+	delete [] colStops;
+}
+
+void MatrixPins::initialize() {
+	columns.initializePins();
+	rows.initializePins();
+}
+
+void MatrixPins::refresh(Time now) {
+	Time timeIntoThisCycle = now  % refreshRate;	// time since we started this matrix refresh
+	Time timeIntoThisColumn = timeIntoThisCycle % pwmCutoffs[TIMER_GRANULARITY-1];
+
+	for (int columnNdx = 0; columnNdx < columns.getPinCount(); columnNdx++) {
+		if ((timeIntoThisCycle < colStarts[columnNdx]) ||(timeIntoThisCycle >= colStops[columnNdx])) {
+			// we've passed this column so turn it off
+			columns.setDigitalPin(columnNdx, LOW);
+		} else {
+			columns.setDigitalPin(columnNdx, HIGH);
+			for (int i = 0; i < rows.getPinCount(); i++) {
+				int rowValue = (*currentPattern)[columnNdx][i];
+				if (timeIntoThisColumn < pwmCutoffs[rowValue]) {
+					rows.setDigitalPin(i, HIGH);
+				} else {
+					rows.setDigitalPin(i, LOW);
+				}
+			}
+		}
+	}
+
+/*
+
+	Time timeIntoThisCycle = now  % refreshRate;	// time since we started this matrix refresh
+	Time timeIntoThisColumn = timeIntoThisCycle % pwmCutoffs[TIMER_GRANULARITY-1];
+	int columnNdx = map(timeIntoThisCycle, 0, refreshRate, 0, columns.getPinCount());
+	
+	for (int i = 0; i < columns.getPinCount(); i++) {
+		columns.setDigitalPin(i, (i == columnNdx) ? HIGH : LOW);
+	}
+	for (int i = 0; i < rows.getPinCount(); i++) {
+		int rowValue = (*currentPattern)[columnNdx][i];
+		if (timeIntoThisColumn < pwmCutoffs[rowValue]) {
+			rows.setDigitalPin(i, HIGH);
+		} else {
+			rows.setDigitalPin(i, LOW);
+		}
+	}
+	*/
+}
+
+void MatrixPins::setPattern(MatrixPattern* pattern) {
+	currentPattern = pattern;
+}

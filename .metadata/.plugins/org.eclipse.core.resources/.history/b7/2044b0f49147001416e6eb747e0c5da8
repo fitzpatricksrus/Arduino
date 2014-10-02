@@ -1,0 +1,34 @@
+/*
+ * ConcreteMatrixPattern.cpp
+ *
+ *  Created on: Sep 28, 2014
+ *      Author: Dad
+ */
+
+#include "ConcreteMatrixPattern.h"
+
+template <int COLS, int ROWS>
+ConcreteMatrixPattern<COLS, ROWS>::ConcreteMatrixPatern(ValueArray& valuesIn)
+: values(valuesIn)
+{
+
+}
+
+template <int COLS, int ROWS>
+virtual ConcreteMatrixPattern<COLS, ROWS>::~ConcreteMatrixPatern();
+
+template <int COLS, int ROWS>
+virtual int ConcreteMatrixPattern<COLS, ROWS>::getRowCount() const;
+
+template <int COLS, int ROWS>
+virtual int ConcreteMatrixPattern<COLS, ROWS>::getColumnCount() const;
+
+template <int COLS, int ROWS>
+virtual int ConcreteMatrixPattern<COLS, ROWS>::getValue(int row, int column) const;
+
+template <int COLS, int ROWS>
+virtual int ConcreteMatrixPattern<COLS, ROWS>::const* operator[](int columnIndex) const;
+
+template <int COLS, int ROWS>
+virtual int* ConcreteMatrixPattern<COLS, ROWS>::operator[](int columnIndex);
+

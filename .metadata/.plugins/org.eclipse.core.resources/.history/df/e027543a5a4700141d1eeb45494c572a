@@ -1,0 +1,27 @@
+/*
+ * OutputPins.h
+ *
+ *  Created on: Sep 24, 2014
+ *      Author: Dad
+ */
+
+#ifndef OUTPUTPINS_H_
+#define OUTPUTPINS_H_
+
+class OutputPins {
+public:
+	enum { LOW, HIGH } DigitalPinValue;
+
+    OutputPins(int pins[], int pinCount);
+	virtual ~OutputPins();
+    void initialize();
+    int getPin(int pinNdx);
+    void setPin(int pinNdx, int value);
+    void setPin(int pinNdx, DigitalPinValue setHigh);
+    int getPinCount();
+private:
+    int* pinNumber;
+    int* pinValue;
+    int pinCount;
+};
+#endif /* OUTPUTPINS_H_ */

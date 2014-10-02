@@ -1,0 +1,23 @@
+20:27:54 **** Incremental Build of configuration Debug for project ScratchCPP ****
+make all 
+Building target: ScratchCPP
+Invoking: Cross G++ Linker
+g++  -o "ScratchCPP"  ./src/Arduino.o ./src/ConcreteMatrixPattern.o ./src/LampMatrix.o ./src/Logging.o ./src/MatrixPattern.o ./src/MatrixPins.o ./src/OutputPins.o ./src/ScratchCPP.o   
+Undefined symbols for architecture x86_64:
+  "analogWrite(int, int)", referenced from:
+      OutputPins::initializePins(int) in OutputPins.o
+      OutputPins::setAnalogPin(int, int) in OutputPins.o
+  "digitalWrite(int, int)", referenced from:
+      OutputPins::initializeDigitalPins(int) in OutputPins.o
+      OutputPins::setDigitalPin(int, int) in OutputPins.o
+  "micros()", referenced from:
+      loop() in LampMatrix.o
+  "pinMode(int, int)", referenced from:
+      OutputPins::initializePins(int) in OutputPins.o
+      OutputPins::initializeDigitalPins(int) in OutputPins.o
+ld: symbol(s) not found for architecture x86_64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+make: *** [ScratchCPP] Error 1
+
+20:27:54 Build Finished (took 59ms)
+

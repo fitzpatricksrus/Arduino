@@ -1,0 +1,32 @@
+/*
+ * MatrixPattern.h
+ *
+ *  Created on: Sep 26, 2014
+ *      Author: Dad
+ */
+
+#ifndef MATRIXPATTERN_H_
+#define MATRIXPATTERN_H_
+
+#include "MatrixColumnPattern.h"
+#include "Bag.h"
+
+template <size_t COLS>
+class MatrixPattern {
+  public:
+	class MatrixColumn {
+		virtual int operator[](int rowIndex) const = 0;
+	};
+
+	MatrixPattern();
+    virtual ~MatrixPattern();
+    virtual int getRowCount() const = 0;
+    virtual int getCollumnCount() const = 0;
+    virtual int getValue(int row, int column) const = 0;
+    virtual MatrixColumn& operator[](int columnIndex) const = 0;
+
+};
+
+static MatrixPattern<5, 5>* create(int[] data);
+
+#endif /* MATRIXPATTERN_H_ */

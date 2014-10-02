@@ -1,0 +1,62 @@
+//
+//  Arduino.cpp
+//  ScratchCPP
+//
+//  Created by Dad on 9/30/14.
+//  Copyright (c) 2014 Dad. All rights reserved.
+//
+
+#include <stdio.h>
+#include "Arduino.h"
+#include <iostream>
+
+long now = 0;
+long lastNow = 0;
+int* pins = new int[20];
+
+#define STATE(x)((x == LOW) ? "-" : "*")
+
+long map(long x, long in_min, long in_max, long out_min, long out_max)
+{
+    return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+}
+
+void pinMode(int pin, int value) {
+    
+}
+void analogWrite(int pin, int value) {
+    digitalWrite(pin, value);
+    
+}
+void digitalWrite(int pin, int value) {
+    pins[pin] = value;
+    if (pin >= 2)
+        std::cout << "now: " << now << " digitalWrite(" << pin << ", " << STATE(value) << ")  Cols[" << STATE(pins[0]) << "," << STATE(pins[1]) << "] Rows[" << STATE(pins[2]) << "," << STATE(pins[3]) << "]\n";
+}
+
+long millis() {
+    if (now == 0) for (int i = 0; i < 20; i++) pins[i] = 0;
+    return now++;
+}
+long micros() {
+    if (now == 0) for (int i = 0; i < 20; i++) pins[i] = 0;
+    return now++;
+}
+
+void SerialIO::begin(long baud) {
+    
+}
+void SerialIO::println(char) {
+    
+}
+void SerialIO::println(int) {
+    
+}
+void SerialIO::println(long) {
+    
+}
+void SerialIO::println(char*){
+    
+}
+
+SerialIO Serial;

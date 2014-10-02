@@ -1,0 +1,17 @@
+/*
+ * ConcreteMatrixPattern.h
+ *
+ *  Created on: Sep 28, 2014
+ *      Author: Dad
+ */
+
+#ifndef CONCRETEMATRIXPATTERN_H_
+#define CONCRETEMATRIXPATTERN_H_
+
+class ConcreteMatrixPattern {
+public:
+	ConcreteMatrixPattern();
+	virtual ~ConcreteMatrixPattern();
+};
+
+#endif /* CONCRETEMATRIXPATTERN_H_ */

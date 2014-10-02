@@ -1,0 +1,47 @@
+21:55:42 **** Incremental Build of configuration Release for project LampMatrixWiringTest ****
+make all 
+Building file: ../.ino.cpp
+Starting C++ compile
+"/Users/Dad/GoogleDrive/arduino/Arduino 1.5.5.app/Contents/Resources/Java/hardware/tools/avr/bin/avr-g++" -c -g -Os -fno-exceptions -ffunction-sections -fdata-sections -MMD -mmcu=atmega328p -DF_CPU=16000000L -DARDUINO=155 -DARDUINO_AVR_UNO -DARDUINO_ARCH_AVR    -I"/Users/Dad/GoogleDrive/arduino/Arduino 1.5.5.app/Contents/Resources/Java/hardware/arduino/avr/cores/arduino" -I"/Users/Dad/GoogleDrive/arduino/Arduino 1.5.5.app/Contents/Resources/Java/hardware/arduino/avr/variants/standard" -MMD -MP -MF".ino.cpp.d" -MT".ino.cpp.d" -D__IN_ECLIPSE__=1 -x c++ "../.ino.cpp"  -o  ".ino.cpp.o"   -Wall
+In file included from ../.ino.cpp:12:
+../LampMatrixWiringTest.ino:5: warning: 'xROW_PIN_NUMBERS' defined but not used
+../LampMatrixWiringTest.ino:6: warning: 'xCOL_PIN_NUMBERS' defined but not used
+Finished building: ../.ino.cpp
+ 
+Starting combiner
+"/Users/Dad/GoogleDrive/arduino/Arduino 1.5.5.app/Contents/Resources/Java/hardware/tools/avr/bin/avr-gcc" -Os -Wl,--gc-sections -mmcu=atmega328p -o "/Users/Dad/GoogleDrive/arduino/Workspace/LampMatrixWiringTest/Release/LampMatrixWiringTest.elf"    ./.ino.cpp.o   /Users/Dad/GoogleDrive/arduino/Workspace/LampMatrixWiringTest/Release/arduino.ar   "/Users/Dad/GoogleDrive/arduino/Workspace/LampMatrixWiringTest/Release/arduino.ar" "-L/Users/Dad/GoogleDrive/arduino/Workspace/LampMatrixWiringTest/Release" -lm
+Finished building: LampMatrixWiringTest.elf
+ 
+Create eeprom image
+"/Users/Dad/GoogleDrive/arduino/Arduino 1.5.5.app/Contents/Resources/Java/hardware/tools/avr/bin/avr-objcopy" -O ihex -j .eeprom --set-section-flags=.eeprom=alloc,load --no-change-warnings --change-section-lma .eeprom=0 "/Users/Dad/GoogleDrive/arduino/Workspace/LampMatrixWiringTest/Release/LampMatrixWiringTest.elf" "/Users/Dad/GoogleDrive/arduino/Workspace/LampMatrixWiringTest/Release/LampMatrixWiringTest.eep"
+Finished building: LampMatrixWiringTest.eep
+ 
+Create Flash image (ihex format)
+"/Users/Dad/GoogleDrive/arduino/Arduino 1.5.5.app/Contents/Resources/Java/hardware/tools/avr/bin/avr-objcopy" -O ihex -R .eeprom "/Users/Dad/GoogleDrive/arduino/Workspace/LampMatrixWiringTest/Release/LampMatrixWiringTest.elf" "/Users/Dad/GoogleDrive/arduino/Workspace/LampMatrixWiringTest/Release/LampMatrixWiringTest.hex"
+Finished building: LampMatrixWiringTest.hex
+ 
+Building target: LampMatrixWiringTest
+Printing size:
+"/Users/Dad/GoogleDrive/arduino/Arduino 1.5.5.app/Contents/Resources/Java/hardware/tools/avr/bin/avr-size" -A "/Users/Dad/GoogleDrive/arduino/Workspace/LampMatrixWiringTest/Release/LampMatrixWiringTest.elf"
+/Users/Dad/GoogleDrive/arduino/Workspace/LampMatrixWiringTest/Release/LampMatrixWiringTest.elf  :
+section            size      addr
+.data                40   8388864
+.text              4810         0
+.bss                179   8388904
+.debug_aranges     1608         0
+.debug_pubnames    3568         0
+.debug_info       33895         0
+.debug_abbrev      5712         0
+.debug_line       16613         0
+.debug_frame       2768         0
+.debug_str         7556         0
+.debug_loc        18922         0
+.debug_ranges      1448         0
+Total             97119
+
+
+Finished building target: LampMatrixWiringTest
+ 
+
+21:55:42 Build Finished (took 161ms)
+

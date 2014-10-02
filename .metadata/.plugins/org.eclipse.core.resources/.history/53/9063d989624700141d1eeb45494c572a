@@ -1,0 +1,55 @@
+/*
+ * OutputPins.cpp
+ *
+ *  Created on: Sep 24, 2014
+ *      Author: Dad
+ */
+#include "OutputPins.h"
+
+#include <Arduino.h>
+
+OutputPins::OutputPins(int pinsIn[], int pinCountIn)
+: pinNumber(&pinsIn[0]), pinCount(pinCountIn)
+{
+	pinValue = new int[pinCountIn];
+}
+
+OutputPins::~OutputPins() {
+	// TODO Auto-generated destructor stub
+	delete[] pinValue;
+}
+
+void OutputPins::initializePins() {
+    // this setup could easily be in the constructor if
+    // we allocated the OutputPins in the setup() method,
+    // but since we do it statically we need to wait
+    // until setup() is called to initialize output pins.
+    for (int i = 0; i < pinCount; i++) {
+        pinMode(pinNumber[i], OUTPUT);
+        digitalWrite(pinNumber[i], LOW);
+        pinValue[i] = LOW;
+    }
+}
+
+int OutputPins::getPin(int pinNdx) {
+    return pinValue[pinNdx];
+}
+
+void OutputPins::setAnalogPin(int pinNdx, int value) {
+    if (value == getPin(pinNdx)) return;
+    //  Serial.println(String("Pin Changed: ")+pinNumber[pinNdx]+" = "+value+" from "+getPin(pinNdx));
+	analogWrite(pinNumber[pinNdx], value);
+    pinValue[pinNdx] = value;
+}
+
+void OutputPins::setDigitalPin(int pinNdx, int value) {
+    if (value == getPin(pinNdx)) return;
+    //  Serial.println(String("Pin Changed: ")+pinNumber[pinNdx]+" = "+value+" from "+getPin(pinNdx));
+    digitalWrite(pinNumber[pinNdx], value);
+    pinValue[pinNdx] = value;
+}
+
+
+int OutputPins::getPinCount() {
+    return pinCount;
+}

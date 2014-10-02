@@ -1,0 +1,25 @@
+#include <Arduino.h>
+
+static int ROW_PIN_NUMBERS[] = { 3,4, -1  };
+static int COL_PIN_NUMBERS[] = { 5,6, -1 };
+
+
+//-------------------------------------------------
+
+void setup() {
+   Serial.begin(115200);
+   for (int i = 0; COL_PIN_NUMBERS[i] >= 0; i++ ) {
+     pinMode(COL_PIN_NUMBERS[i], OUTPUT);
+     digitalWrite(COL_PIN_NUMBERS[i], LOW);
+   }
+   for (int i = 0; ROW_PIN_NUMBERS[i] >= 0; i++ ) {
+     pinMode(ROW_PIN_NUMBERS[i], OUTPUT);
+     digitalWrite(ROW_PIN_NUMBERS[i], LOW);
+   }
+}
+
+// The loop function is called in an endless loop
+void loop()
+{
+//Add your repeated code here
+}

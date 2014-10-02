@@ -1,0 +1,24 @@
+/*
+ * LampColumnPattern.h
+ *
+ *  Created on: Sep 26, 2014
+ *      Author: Dad
+ */
+
+#ifndef LAMPCOLUMNPATTERN_H_
+#define LAMPCOLUMNPATTERN_H_
+
+#include "Bag.h"
+
+class MatrixColumnPattern {
+  public:
+	MatrixColumnPattern();
+	~MatrixColumnPattern();
+	MatrixColumnPattern& operator<<(int x);
+    int getRow(int rowIndex) const;
+    int operator[](int row) const;
+  private:
+    Bag<int> value;
+};
+
+#endif /* LAMPCOLUMNPATTERN_H_ */

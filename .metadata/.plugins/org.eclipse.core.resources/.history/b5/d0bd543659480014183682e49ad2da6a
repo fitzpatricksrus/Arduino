@@ -1,0 +1,17 @@
+/*
+ * Debuggable.h
+ *
+ *  Created on: Sep 29, 2014
+ *      Author: Dad
+ */
+
+#ifndef DEBUGGABLE_H_
+#define DEBUGGABLE_H_
+
+class Debuggable {
+public:
+	Debuggable();
+	virtual ~Debuggable();
+};
+
+#endif /* DEBUGGABLE_H_ */

@@ -1,0 +1,39 @@
+/*
+ * LampColumnPattern.cpp
+ *
+ *  Created on: Sep 26, 2014
+ *      Author: Dad
+ */
+
+#include "MatrixColumnPattern.h"
+
+MatrixColumnPattern::MatrixColumnPattern() {
+	// TODO Auto-generated constructor stub
+}
+
+MatrixColumnPattern:MatrixColumnPattern(std::initializer_list<int> values) {
+    for (auto elem : values ) {
+    }
+}
+
+MatrixColumnPattern::~MatrixColumnPattern() {
+	// TODO Auto-generated destructor stub
+}
+
+MatrixColumnPattern& MatrixColumnPattern::operator<<(int x) {
+	int y = x;
+	value.push_back(y);
+	return *this;
+}
+
+int MatrixColumnPattern::getRow(int rowIndex) const {
+	return value[rowIndex];
+}
+
+int MatrixColumnPattern::operator[](int row) const {
+	return value[row];
+}
+
+int MatrixColumnPattern::size() const {
+	return value.size();
+}

@@ -1,0 +1,35 @@
+//
+//  Arduino.h
+//  ScratchCPP
+//
+//  Created by Dad on 9/30/14.
+//  Copyright (c) 2014 Dad. All rights reserved.
+//
+
+#ifndef ScratchCPP_Arduino_h
+#define ScratchCPP_Arduino_h
+
+#define OUTPUT 1
+#define LOW 0
+#define HIGH 1
+
+void pinMode(int pin, int value);
+void analogWrite(int pin, int value);
+void digitalWrite(int pin, int value);
+long millis();
+long micros();
+
+long map(long x, long in_min, long in_max, long out_min, long out_max);
+
+class SerialIO {
+public:
+    void begin(long baud);
+    void println(char);
+    void println(int);
+    void println(long);
+    void println(char*);
+};
+
+extern SerialIO Serial;
+
+#endif

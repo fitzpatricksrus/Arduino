@@ -1,0 +1,32 @@
+/*
+ * MatrixPins.h
+ *
+ *  Created on: Sep 26, 2014
+ *      Author: Dad
+ */
+
+#ifndef MATRIXPINS_H_
+#define MATRIXPINS_H_
+
+#include "Bag.h"
+#include "MatrixPattern.h"
+#include "OutputPins.h"
+
+typedef unsigned long Time;
+
+class MatrixPins {
+  public:
+	MatrixPins(Bag<OutputPins> cols, Bag<OutputPins> rows, Time refreshRate);
+	~MatrixPins();
+	void refresh(Time now);
+	void setPatter(MatrixPattern* pattern);
+  private:
+	Bag<OutputPins> columns;
+    Bag<OutputPins> rows;
+    MatrixPattern* currentPattern;
+    Time refreshRate;
+    Time timePerColumn;
+};
+
+
+#endif /* MATRIXPINS_H_ */

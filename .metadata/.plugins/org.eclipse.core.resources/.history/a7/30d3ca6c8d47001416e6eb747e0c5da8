@@ -1,0 +1,69 @@
+/*
+ * MatrixPattern.cpp
+ *
+ *  Created on: Sep 26, 2014
+ *      Author: Dad
+ */
+
+#include "MatrixPattern.h"
+
+
+template <int ROWS, int COLS>
+class ConcreteMatrixPattern : public MatrixPattern {
+  public:
+	typedef int ValueArray[ROWS][COLS];
+
+	ConcreteMatrixPattern(ValueArray& values);
+	virtual ~ConcreteMatrixPattern();
+    virtual int getRowCount() const;
+    virtual int getColumnCount() const;
+    virtual int getValue(int row, int column) const;
+    virtual int const* operator[](int columnIndex) const;
+    virtual int* operator[](int columnIndex);
+
+  private:
+    ValueArray& values;
+};
+
+template <int rows, int cols>
+ConcreteMatrixPattern<rows, cols>::ConcreteMatrixPattern(ValueArray& valuesIn)
+: values(valuesIn)
+{
+}
+
+template <int rows, int cols>
+ConcreteMatrixPattern<rows, cols>::~ConcreteMatrixPattern() {
+
+}
+
+template <int rows, int cols>
+int ConcreteMatrixPattern<rows, cols>::getRowCount() const {
+	return rows;
+}
+
+template <int rows, int cols>
+int ConcreteMatrixPattern<rows, cols>::getColumnCount() const {
+	return cols;
+}
+
+template <int rows, int cols>
+int ConcreteMatrixPattern<rows, cols>::getValue(int row, int column) const {
+	return values[column][row];
+}
+
+template <int rows, int cols>
+int const* ConcreteMatrixPattern<rows, cols>::operator[](int columnIndex) const {
+	return values[columnIndex];
+}
+
+template <int rows, int cols>
+int* ConcreteMatrixPattern<rows, cols>::operator[](int columnIndex) {
+	return values[columnIndex];
+}
+
+//------------------------------------------
+
+template <int cols, int rows>
+static MatrixPattern* MatrixPattern::create(int[cols][rows]) {
+	return 0;
+}

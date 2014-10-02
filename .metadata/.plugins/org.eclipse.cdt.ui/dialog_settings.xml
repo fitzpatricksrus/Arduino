@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="Default C++ source template" key="LastUsedSourceTemplate"/>
+	<item value="Default C++ header template" key="LastUsedHeaderTemplate"/>
+	<section name="completion_proposal_size">
+		<item value="272" key="size.x"/>
+		<item value="198" key="size.y"/>
+	</section>
+	<section name="RenameInformationPopup">
+	</section>
+	<section name="NewClassWizardPage">
+		<item value="true" key="stubSelected1"/>
+		<item value="false" key="testFileSelected"/>
+		<item value="false" key="namespaceSelected"/>
+		<item value="false" key="stubInline1"/>
+		<item value="true" key="stubVirtual1"/>
+		<item value="false" key="stubInline0"/>
+		<item value="true" key="stubSelected0"/>
+		<item value="" key="namespace"/>
+	</section>
+	<section name="CRenameRefactoringInputPage">
+	</section>
+	<section name="org.eclipse.cdt.ui.OPEN_ACTION_SELECTION_DIALOG_SECTION">
+		<item value="382" key="DIALOG_WIDTH"/>
+		<item value="139" key="DIALOG_Y_ORIGIN"/>
+		<item value="447" key="DIALOG_X_ORIGIN"/>
+		<item value="375" key="DIALOG_HEIGHT"/>
+		<item value="1|Lucida Grande|11.0|0|COCOA|1|LucidaGrande" key="DIALOG_FONT_NAME"/>
+	</section>
+	<section name="org.eclipse.cdt.ui.text.hover.CMacroExpansionExploration">
+	</section>
+</section>

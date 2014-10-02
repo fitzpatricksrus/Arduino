@@ -1,0 +1,17 @@
+/*
+ * Matrix.h
+ *
+ *  Created on: Sep 28, 2014
+ *      Author: Dad
+ */
+
+#ifndef MATRIX_H_
+#define MATRIX_H_
+
+class Matrix {
+public:
+	Matrix();
+	virtual ~Matrix();
+};
+
+#endif /* MATRIX_H_ */
